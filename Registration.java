@@ -181,7 +181,6 @@ public class Registration{
             }
         }
         while(rcred <= 0 || rcred > 20);
-        System.out.println("The number of credits you entered was " + rcred);
         System.out.println();
         output.println(rcred);
         creditAndStatus = rcred +" ";
@@ -248,8 +247,9 @@ public class Registration{
             creditAndStatus += status;
         }
         return creditAndStatus;
+       System.out.println();
     }
-    static void residencyMenu() //eliminate some redundancy
+    static void residencyMenu() //eliminates some redundancy
        {
           System.out.println("Please indicate your residency status by ");
           System.out.println("entering the appropriate number");
@@ -260,7 +260,7 @@ public class Registration{
           System.out.println("(5) Washington State Employee");
           System.out.println("(6) Veteran");
           System.out.println("(7) Running Start");
-          System.out.println();
+          System.out.print();
        }
     //Calculate Tuition Method - - - - - - - - - -
     static double calcTuition(int credits, String residentStatus)
@@ -304,13 +304,16 @@ public class Registration{
     }
 // Get Fees Method - - - - - - - - - -
   static double getFee(double number_Of_Credit, Scanner scanner) {
+      System.out.println();
+      System.out.println("Please use the fee table to add");
+      System.out.println("any applicable fees.");
       double fee = 0.00;
       int numberOfCourse = 0;
       int option = 0;
       int option1 = 0;
       while (true) {
           menuFee();
-          System.out.println("----------------------------------\n Enter fee (#):");
+          System.out.print("----------------------------------\n Enter fee (#): ");
           option = scanner.nextInt();
           if (option == 1) {
               System.out.println("1 class(1) or 2 classes(2) ?");
@@ -362,12 +365,12 @@ public class Registration{
               System.err.println("Your Option invalid !!!");
           }
           scanner.nextLine(); //Clear data
-          System.out.println("Add another fee? (Y/N)");
+          System.out.print("Add another fee? (Y/N) ");
           String answer = scanner.nextLine();
           if (answer.equalsIgnoreCase("n") || answer.equalsIgnoreCase("no")) {
               return fee;
           }
-
+      System.out.println();
       }
       return 0;
   }
@@ -375,7 +378,7 @@ public class Registration{
       System.out.println("************Fee Table*************");
       System.out.println("1. Computer Lab Fee (CL)");
       System.out.println("2. Parking Permit Fee (CQ)");
-      System.out.println("3. Transportation Management Plan Fee (CP)");
+      System.out.println("3. Transportation Management Plan Fee (CP)");
       System.out.println("4. Universal eLearning Fee (UD)");
       System.out.println("5. Universal Technology Fee (UT)");
       System.out.println("6. Wellness Center Access Fee (DX)");
@@ -393,6 +396,7 @@ public class Registration{
        String credits = input.nextLine();
 
        // print studentInfo from local variables
+       System.out.println("----------------------------------");
        System.out.println(name + "\t Student ID: " + sID);
        //System.out.println(address);
        System.out.println("Number of credits: " + credits);
