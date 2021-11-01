@@ -16,7 +16,7 @@ public class Registration{
       System.out.println("\\---------------------------------------------------------/");
       System.out.println();
       do{
-        // IO calls
+        // IO calls - - - - - - - - - -
         PrintStream output = new PrintStream(new File("StudentInfo.txt"));
         Scanner input = new Scanner(new File("StudentInfo.txt"));
         Scanner console = new Scanner(System.in); // call console for input
@@ -33,10 +33,10 @@ public class Registration{
         double fees = getFee(credits, console);
         // Display by James
         printAll(input, tuition, fees, residency);
-
         PrintStream erase = new PrintStream(new File("StudentInfo.txt"));
 
-      // Other end of Repetition Structure
+      // Other end of Repetition Structure - - - - - - - - - -
+      System.out.println();
       System.out.println("Would like to start again? (y/n)");
       repeat = console.next();
       }while ( repeat.equals ( "y") || repeat.equals ( "Y")); // Any non-Y input exits the program
@@ -234,8 +234,6 @@ public class Registration{
                 System.out.println("Incorrect number detected. Try again.");
             }
         }
-
-
         if(stat == 1)
         {
             String status = ("Washington_resident");
@@ -281,7 +279,7 @@ public class Registration{
         }
         return creditAndStatus;
     }
-
+    //Calculate Tuition Method - - - - - - - - - -
     static double calcTuition(int credits, String residentStatus)
       {
         double tuition = 0.00;
@@ -321,7 +319,7 @@ public class Registration{
         }
         return tuition;
     }
-// getFee Method - - - - - - - - - -
+// Get Fees Method - - - - - - - - - -
   static double getFee(double number_Of_Credit, Scanner scanner) {
       double fee = 0.00;
       int numberOfCourse = 0;
@@ -420,8 +418,6 @@ public class Registration{
        System.out.printf("Tution is $%.2f\n", fees);
        System.out.printf("Total cost is $%.2f",(tuition + fees));
        System.out.println();
-
      }
    }
-
 }
