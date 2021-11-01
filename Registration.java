@@ -260,7 +260,7 @@ public class Registration{
           System.out.println("(5) Washington State Employee");
           System.out.println("(6) Veteran");
           System.out.println("(7) Running Start");
-          System.out.print();
+          System.out.print("Enter option: ");
        }
     //Calculate Tuition Method - - - - - - - - - -
     static double calcTuition(int credits, String residentStatus)
