@@ -65,7 +65,6 @@ public class Registration{
         int id3 = 0;
         do
         {
-
             System.out.println("Please enter the first 3 digits of ");
             System.out.print("your student ID number: ");
 
@@ -83,10 +82,8 @@ public class Registration{
             }
             System.out.println();
         } while (id1 > 999 || id1 < 0);
-
         do
         {
-
             System.out.println("Please enter the next 2 digits of ");
             System.out.print("your student ID number: ");
 
@@ -97,17 +94,14 @@ public class Registration{
                 System.out.print("your student ID number: ");
                 id2 = input.nextInt();
                 }
-
             id2 = input.nextInt();
             if (id2>99)
             {
                 System.out.println("Too many digits");
             }
         } while (id2 > 99 || id2 < 0);
-
         do
         {
-
             System.out.println("Please enter the last 4 digits of ");
             System.out.print("your student ID number: ");
 
@@ -118,7 +112,6 @@ public class Registration{
                 System.out.print("your student ID number: ");
                 id3 = input.nextInt();
                 }
-
             id3 = input.nextInt();
             if (id2>9999)
             {
@@ -127,8 +120,6 @@ public class Registration{
             System.out.println();
         } while (id3 > 9999 || id3 < 0);
         System.out.print("The student number that you provided is: ");
-
-
         if(id1<10)
         {
             System.out.print("00" + id1 + "-");
@@ -142,7 +133,6 @@ public class Registration{
             System.out.print(id1 + "-");
             output.print(id1 + "-");
         }
-
         if(id2<10)
         {
             System.out.print("0" + id2 + "-");
@@ -152,7 +142,6 @@ public class Registration{
             System.out.print(id2 + "-");
             output.print(id2 + "-");
         }
-
         if(id3<10)
         {
             System.out.println("000" + id3);
@@ -194,7 +183,6 @@ public class Registration{
         while(rcred <= 0 || rcred > 20);
         System.out.println("The number of credits you entered was " + rcred);
         System.out.println();
-
         output.println(rcred);
         creditAndStatus = rcred +" ";
 
@@ -202,30 +190,12 @@ public class Registration{
         int stat = 0;
         while(stat <= 0 || stat>7)
         {
-            System.out.println("Please indicate your residency status by ");
-            System.out.println("entering the appropriate number");
-            System.out.println("(1) Washington resident");
-            System.out.println("(2) Non-Washington resident");
-            System.out.println("(3) Non-Washington e-learning");
-            System.out.println("(4) International");
-            System.out.println("(5) Washington State Employee");
-            System.out.println("(6) Veteran");
-            System.out.println("(7) Running Start");
-            System.out.println("");
+            residencyMenu(); // line 252
             while(!input.hasNextInt()) {
-                System.out.println("");
+                System.out.println();
                 System.out.println("That isn't a number. Try again");
-                System.out.println("");
-                System.out.println("Please indicate your residency status by ");
-                System.out.println("entering the appropriate number");
-                System.out.println("(1) Washington resident");
-                System.out.println("(2) Non-Washington resident");
-                System.out.println("(3) Non-Washington e-learning");
-                System.out.println("(4) International");
-                System.out.println("(5) Washington State Employee");
-                System.out.println("(6) Veteran");
-                System.out.println("(7) Running Start");
-                System.out.println("");
+                System.out.println();
+                residencyMenu();
                 input.next();
             }
             stat = input.nextInt();
@@ -279,6 +249,19 @@ public class Registration{
         }
         return creditAndStatus;
     }
+    static void residencyMenu() //eliminate some redundancy
+       {
+          System.out.println("Please indicate your residency status by ");
+          System.out.println("entering the appropriate number");
+          System.out.println("(1) Washington resident");
+          System.out.println("(2) Non-Washington resident");
+          System.out.println("(3) Non-Washington e-learning");
+          System.out.println("(4) International");
+          System.out.println("(5) Washington State Employee");
+          System.out.println("(6) Veteran");
+          System.out.println("(7) Running Start");
+          System.out.println();
+       }
     //Calculate Tuition Method - - - - - - - - - -
     static double calcTuition(int credits, String residentStatus)
       {
