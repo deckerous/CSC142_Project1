@@ -160,6 +160,10 @@ public class Registration{
             output.println(id3);
         }
         System.out.println();
+        
+        //Enter Address--------------------------------------------------------
+        System.out.println("Please input your address");
+        String address = input.next();
 
         //Enter Registered Credits---------------------------------------------
         int rcred = 0;
@@ -246,8 +250,9 @@ public class Registration{
             System.out.println(" is " + status);
             creditAndStatus += status;
         }
+        System.out.println();
         return creditAndStatus;
-       System.out.println();
+        
     }
     static void residencyMenu() //eliminates some redundancy
        {
@@ -392,17 +397,17 @@ public class Registration{
        // Initiate and assign info variables from file
        String name = input.nextLine();
        String sID = input.nextLine();
-       //String address = input.nextLine();
-       String credits = input.nextLine();
+       String address = input.nextLine();
+       String rcred = input.nextLine();
 
        // print studentInfo from local variables
        System.out.println("----------------------------------");
        System.out.println(name + "\t Student ID: " + sID);
-       //System.out.println(address);
-       System.out.println("Number of credits: " + credits);
+       System.out.println(address);
+       System.out.println("Number of credits: " + rcred);
        System.out.println("Residency status: " + residency);
-       System.out.printf("Tution is $%.2f\n", tuition);
-       System.out.printf("Tution is $%.2f\n", fees);
+       System.out.printf("Tuition is $%.2f\n", tuition);
+       System.out.printf("Tuition is $%.2f\n", fees);
        System.out.printf("Total cost is $%.2f",(tuition + fees));
        System.out.println();
      }
