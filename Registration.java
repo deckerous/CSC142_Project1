@@ -10,12 +10,12 @@ public class Registration{
    throws FileNotFoundException
    {
       String repeat;
-      System.out.println();
-      System.out.println("/---------------------------------------------------------\\");
-      System.out.println("|Welcome To the RegistrationTool for North Seattle College|");
-      System.out.println("\\---------------------------------------------------------/");
-      System.out.println();
       do{
+        System.out.println();
+        System.out.println("/---------------------------------------------------------\\");
+        System.out.println("|Welcome To the RegistrationTool for North Seattle College|");
+        System.out.println("\\---------------------------------------------------------/");
+        System.out.println();
         // IO calls - - - - - - - - - -
         PrintStream output = new PrintStream(new File("StudentInfo.txt"));
         Scanner input = new Scanner(new File("StudentInfo.txt"));
@@ -162,8 +162,12 @@ public class Registration{
         System.out.println();
         
         //Enter Address--------------------------------------------------------
-        System.out.println("Please input your address");
-        String address = input.next();
+        if (1 == 1){
+           System.out.println("Please input your address");
+           String address = input.next();
+           output.println(address);
+           System.out.println();
+        }
 
         //Enter Registered Credits---------------------------------------------
         int rcred = 0;
