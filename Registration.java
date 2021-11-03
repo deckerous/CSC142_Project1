@@ -2,6 +2,8 @@
 // Project Members: Henri Lower, James Decker, Kassandra Mares and Long Quan Ha
 // CSC 142 tth
 
+
+
 import java.util.*;
 import java.io.*;
 
@@ -60,106 +62,63 @@ public class Registration{
         output.println("Student Name  :  " + fname + " " + lname);
 
         //Enter Student ID---------------------------------
-        int id1 = 0;
-        int id2 = 0;
-        int id3 = 0;
-        do
+        
+        //Initialize Variables
+        int id = 0;
+        int length = 0;
+        String sid = "";
+        while(length!=9)
+        //While loop that runs until length of user input equals 9 digits
         {
-            System.out.println("Please enter the first 3 digits of ");
-            System.out.print("your student ID number: ");
-
-            while(!input.hasNextInt() && input!=null) {
-                System.out.println("That isn't an appropriate number");
-                System.out.println();
-                System.out.println("Please enter the first 3 digits of ");
-                System.out.print("your student ID number: ");
-                id1 = input.nextInt();
-                }
-            id1 = input.nextInt();
-            if (id1>999)
+            System.out.println("Please input your 9 digit student ID number");
+            sid = input.next(); //Set String "sid" equal to the user's input
+            length = sid.length(); //Set int "length" equal to the length of the string
+            if(length==9) 
+            //If the length does equal 9
             {
-                System.out.println("Too many digits");
-            }
-            System.out.println();
-        } while (id1 > 999 || id1 < 0);
-        do
-        {
-            System.out.println("Please enter the next 2 digits of ");
-            System.out.print("your student ID number: ");
-
-            while(!input.hasNextInt() && input!=null) {
-                System.out.println("That isn't an appropriate number");
-                System.out.println();
-                System.out.println("Please enter the next 2 digits of ");
-                System.out.print("your student ID number: ");
-                id2 = input.nextInt();
+                for(int i = 0; i<=8; i++) 
+                //For loop that iterates from 0 to 8. Basically 1 less than the value of length
+                //Which is guaranteed to be 9 while within this for loop
+                {
+                    if(sid.charAt(i) !='1' && 
+                    sid.charAt(i) !='2' && 
+                    sid.charAt(i) !='3' && 
+                    sid.charAt(i) !='4' && 
+                    sid.charAt(i) !='5' && 
+                    sid.charAt(i) !='6' && 
+                    sid.charAt(i) !='7' && 
+                    sid.charAt(i) !='8' && 
+                    sid.charAt(i) !='9' && 
+                    sid.charAt(i) !='0') 
+                    //While the character at each digit isn't 1 and isn't 2 and isn't 3....
+                    //Then print this out
+                    {
+                        System.out.println("Not a valid 9 digit entry try again");
+                        System.out.println("");
+                        length = 0; //To ensure that the while loop repeats
+                        i=8; //Set i to 8 so the loop breaks and doesn't print extra lines
+                    } 
                 }
-            id2 = input.nextInt();
-            if (id2>99)
+            }else //Input isn't 9 digits long
             {
-                System.out.println("Too many digits");
+                System.out.println("Invalid Input. Try again."); 
             }
-        } while (id2 > 99 || id2 < 0);
-        do
-        {
-            System.out.println("Please enter the last 4 digits of ");
-            System.out.print("your student ID number: ");
-
-            while(!input.hasNextInt() && input!=null) {
-                System.out.println("That isn't an appropriate number");
-                System.out.println();
-                System.out.println("Please enter the last 4 digits of ");
-                System.out.print("your student ID number: ");
-                id3 = input.nextInt();
-                }
-            id3 = input.nextInt();
-            if (id2>9999)
-            {
-                System.out.println("Too many digits");
-            }
-            System.out.println();
-        } while (id3 > 9999 || id3 < 0);
-        System.out.print("The student number that you provided is: ");
-        if(id1<10)
-        {
-            System.out.print("00" + id1 + "-");
-            output.println(id1 + "-");
-        } else if (id1<100)
-        {
-            System.out.print("0" + id1 + "-");
-            output.print(id1 + "-");
-        } else
-        {
-            System.out.print(id1 + "-");
-            output.print(id1 + "-");
         }
-        if(id2<10)
-        {
-            System.out.print("0" + id2 + "-");
-            output.print(id2 + "-");
-        } else
-        {
-            System.out.print(id2 + "-");
-            output.print(id2 + "-");
-        }
-        if(id3<10)
-        {
-            System.out.println("000" + id3);
-            output.println(id3);
-        } else if (id3<100)
-        {
-            System.out.println("00" + id3);
-            output.println(id3);
-        } else if (id3<1000)
-        {
-            System.out.println("0" + id3);
-            output.println(id3);
-        } else
-        {
-            System.out.println(id3);
-            output.println(id3);
-        }
-        System.out.println();
+        //Yay we made it outta the loop and can finally print a useable 9 digit number.
+        
+        //Printing Student ID to console
+        System.out.println("Here is the ID number");
+        System.out.print(sid.substring(0,3));
+        System.out.print("-");
+        System.out.print(sid.substring(3,5));
+        System.out.print("-");
+        System.out.println(sid.substring(5,9));
+        //Printing Student ID to file
+        output.print(sid.substring(0,3));
+        output.print("-");
+        output.print(sid.substring(3,5));
+        output.print("-");
+        output.println(sid.substring(5,9));
         
         //Enter Address--------------------------------------------------------
         if (1 == 1){
@@ -181,7 +140,7 @@ public class Registration{
                 input.next();
             }
             rcred = input.nextInt();
-            if(rcred <= 0 || rcred > 20) //Max of 20 but ASK???!??!?!
+            if(rcred <= 0 || rcred > 20) 
             {
                 System.out.println("That number isn't valid");
                 System.out.println("");
@@ -323,10 +282,17 @@ public class Registration{
       while (true) {
           menuFee();
           System.out.print("----------------------------------\n Enter fee (#): ");
+          while(!scanner.hasNextInt())
+          {
+              scanner.next();
+              System.out.println("Invalid input. Try again");
+              //scanner.nextInt();
+          }
+          
           option = scanner.nextInt();
           if (option == 1) {
               System.out.println("1 class(1) or 2 classes(2) ?");
-              option1 = scanner.nextInt();
+              scanner.next();
               if (option1 == 1) {
                   fee += 62.00;
               } else if (option1 == 2) {
