@@ -149,7 +149,7 @@ public class Registration{
                     System.out.println();
                 } 
             }
-            output.println(address +" "+ city +" "+ state +" "+ zip);
+            output.println(address +" "+ city +" "+ state.toUpperCase() +" "+ zip);
         }
 
         //Enter Registered Credits---------------------------------------------
