@@ -80,7 +80,7 @@ public class Registration{
                 //For loop that iterates from 0 to 8. Basically 1 less than the value of length
                 //Which is guaranteed to be 9 while within this for loop
                 {
-                    if(sid.charAt(i) >= '0' && sid.charAt(i) <='9') 
+                    if(sid.charAt(i) < '0' && sid.charAt(i) > '9') 
                     //While the character at each digit isn't a single positive digit
                     //Then print this out
                     {
@@ -149,7 +149,7 @@ public class Registration{
                     System.out.println();
                 } 
             }
-        
+            output.println(address +" "+ city +" "+ state +" "+ zip);
         }
 
         //Enter Registered Credits---------------------------------------------
