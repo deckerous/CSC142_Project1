@@ -295,93 +295,91 @@ public class Registration{
         return tuition;
     }
 // Get Fees Method - - - - - - - - - -
-  static double getFee(double number_Of_Credit, Scanner scanner) {
-      System.out.println();
-      System.out.println("Please use the fee table to add");
-      System.out.println("any applicable fees.");
-      double fee = 0.00;
-      int numberOfCourse = 0;
-      int option = 0;
-      int option1 = 0;
-      while (true) {
-          menuFee();
-          System.out.print("----------------------------------\n Enter fee (#): ");
-          while(!scanner.hasNextInt())
-          {
-              scanner.next();
-              System.out.println("Invalid input. Try again");
-              //scanner.nextInt();
-          }
-          
-          option = scanner.nextInt();
-          if (option == 1) {
-              System.out.println("1 class(1) or 2 classes(2) ?");
-              scanner.next();
-              if (option1 == 1) {
-                  fee += 62.00;
-              } else if (option1 == 2) {
-                  fee += 97.00;
-              } else {
-                  System.err.println("Option invalid !!");
-              }
-          } else if (option == 2) {
-              System.out.println("All the time permit: $50.00 (1) or Evening (after 4 p.m.): $25.00 (2) : ");
-              option1 = scanner.nextInt();
-              if (option1 == 1) {
-                  fee += 50.00;
-              } else if (option1 == 2) {
-                  fee += 25.00;
-              } else {
-                  System.err.println("Option invalid !!");
-              }
-          } else if (option == 3) {
-              System.out.println("1-9cr (1) or 10+cr (2) :");
-              option1 = scanner.nextInt();
-              if (option1 == 1) {
-                  fee += 0.00;
-              } else if (option1 == 2) {
-                  fee += 15.00;
-              } else {
-                  System.err.println("Invalid Selection! please choose (1) for 1-9cr or (2) for 10+ cr !!");
-              }
-          } else if (option == 4) {
-              fee += 25.00;
-          } else if (option == 5) {
-              System.out.println("Enter number of course(1-10) : ");
-              numberOfCourse = scanner.nextInt();
-              if (numberOfCourse >= 1 && numberOfCourse <= 3) {
-                  fee += 0.00;
-              } else if (numberOfCourse >= 4 && numberOfCourse <= 10) {
-                  fee += (3.00 * numberOfCourse);
-              } else {
-                  System.out.println("Number Of Course Invalid ");
-              }
-              break;
-          } else if (option == 6) {
-              //CASE: THE SAME NUMBER OF COURSE  IN CASE 5
-              fee += 1.25 * numberOfCourse;
-          } else {
-              System.err.println("Your Option invalid !!!");
-          }
-          scanner.nextLine(); //Clear data
-          System.out.print("Add another fee? (Y/N) ");
-          String answer = scanner.nextLine();
-          if (answer.equalsIgnoreCase("n") || answer.equalsIgnoreCase("no")) {
-              return fee;
-          }
-      System.out.println();
-      }
-      return 0;
-  }
-  static void menuFee() {
-      System.out.println("************Fee Table*************");
-      System.out.println("1. Computer Lab Fee (CL)");
-      System.out.println("2. Parking Permit Fee (CQ)");
-      System.out.println("3. Transportation Management Plan Fee (CP)");
-      System.out.println("4. Universal eLearning Fee (UD)");
-      System.out.println("5. Universal Technology Fee (UT)");
-      System.out.println("6. Wellness Center Access Fee (DX)");
-  }
+    static float getFee(float number_Of_Credit, Scanner scanner) {
+        float fee = 0;
+        int numberOfCourse = 0;
+        int option = 0 ;
+        int option1 = 0;
+        while (true) {
+            menuFee();
+            System.out.println("---------------------------------------\n Enter Your option :");
+            option = scanner.nextInt();
+            if (option == 1) {
+                System.out.println("1class(1) or 2classes(2) ?");
+                option1 = scanner.nextInt();
+                if (option1 == 1) {
+                    fee += 62.00;
+                } else if (option1 == 2) {
+                    fee += 97.00;
+                } else {
+                    System.err.println("Option invalid !!");
+                }
+            } else if (option == 2) {
+                System.out.println("All the time permit  $50.00 (1)  or Evening (after 4 p.m.)  $25.00 (2) : ");
+                option1 = scanner.nextInt();
+                if (option1 == 1) {
+                    fee += 50.00;
+                } else if (option1 == 2) {
+                    fee += 25.00;
+                } else {
+                    System.err.println("Option invalid !!");
+                }
+            } else if (option == 3) {
+                System.out.println("1-9cr (1) or 10+cr (2) :");
+                option1 = scanner.nextInt();
+                if (option1 == 1) {
+                    fee += 0.00;
+
+                } else if (option1 == 2) {
+                    fee += 15.00;
+                } else {
+                    System.err.println("your option invalid ! pls choose (1) for 1-9cr or (2) for 10+ cr !!");
+                }
+            } else if (option == 4) {
+                fee += 25.00;
+            } else if (option == 5) {
+                System.out.println("Enter number of course(1-10) : ");
+                numberOfCourse = scanner.nextInt();
+                if (numberOfCourse >= 1 && numberOfCourse <= 3) {
+                    fee += 0.00;
+                } else if (numberOfCourse >= 4 && numberOfCourse <= 10) {
+                    fee += (3.00 * numberOfCourse);
+                } else {
+                    System.out.println("Number Of Course Invalid ");
+                }
+                break;
+            } else if (option == 6) {
+
+                //CASE: THE SAME NUMBER OF COURSE  IN CASE 5 
+                fee += 1.25 * numberOfCourse;
+
+                //CASE: DIFFERENT COURSES IN CASE 5
+//                    System.out.println("Enter number of course(1-10) : ");
+//                    numberOfCourse = scanner.nextInt();
+//                    if (numberOfCourse >= 1 && numberOfCourse <= 10) {
+//                        fee += 1.25*numberOfCourse;
+//                    } else {
+//                        System.out.println("Number Of Course Invalid ");
+//                    }
+            } else if (option == 7) {
+                return fee;
+               
+            } else {
+                System.err.println("Your Option invalid !!!");
+            }
+        }
+        return 0;
+    }
+    static void menuFee() {
+        System.out.println("************Fee Table*************");
+        System.out.println("1. Computer Lab Fee (CL)");
+        System.out.println("2. Parking Permit Fee (CQ)");
+        System.out.println("3. Transportation Management Plan Fee (CP)");
+        System.out.println("4.  Universal eLearning Fee (UD)");
+        System.out.println("5. Universal Technology Fee (UT)");
+        System.out.println("6. Wellness Center Access Fee (DX)");
+        System.out.println("7. No additional fee");
+    }
 // Print Method - - - - - - - - - -
    static void printAll(Scanner input, double tuition, double fees, String residency)
   {
@@ -401,7 +399,7 @@ public class Registration{
        System.out.println("Number of credits: " + rcred);
        System.out.println("Residency status: " + residency);
        System.out.printf("Tuition is $%.2f\n", tuition);
-       System.out.printf("Tuition is $%.2f\n", fees);
+       System.out.printf("Fees is $%.2f\n", fees);
        System.out.printf("Total cost is $%.2f",(tuition + fees));
        System.out.println();
      }
