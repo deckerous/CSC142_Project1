@@ -80,17 +80,8 @@ public class Registration{
                 //For loop that iterates from 0 to 8. Basically 1 less than the value of length
                 //Which is guaranteed to be 9 while within this for loop
                 {
-                    if(sid.charAt(i) !='1' && 
-                    sid.charAt(i) !='2' && 
-                    sid.charAt(i) !='3' && 
-                    sid.charAt(i) !='4' && 
-                    sid.charAt(i) !='5' && 
-                    sid.charAt(i) !='6' && 
-                    sid.charAt(i) !='7' && 
-                    sid.charAt(i) !='8' && 
-                    sid.charAt(i) !='9' && 
-                    sid.charAt(i) !='0') 
-                    //While the character at each digit isn't 1 and isn't 2 and isn't 3....
+                    if(sid.charAt(i) >= '0' && sid.charAt(i) <='9') 
+                    //While the character at each digit isn't a single positive digit
                     //Then print this out
                     {
                         System.out.println("Not a valid 9 digit entry try again");
