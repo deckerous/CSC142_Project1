@@ -70,7 +70,7 @@ public class Registration{
         while(length!=9)
         //While loop that runs until length of user input equals 9 digits
         {
-            System.out.println("Please input your 9 digit student ID number");
+            System.out.print("Please input your 9 digit student ID number:  ");
             sid = input.next(); //Set String "sid" equal to the user's input
             length = sid.length(); //Set int "length" equal to the length of the string
             if(length==9) 
@@ -107,7 +107,7 @@ public class Registration{
         //Yay we made it outta the loop and can finally print a useable 9 digit number.
         
         //Printing Student ID to console
-        System.out.println("Here is the ID number");
+        System.out.print("Here is the ID number:  ");
         System.out.print(sid.substring(0,3));
         System.out.print("-");
         System.out.print(sid.substring(3,5));
@@ -122,10 +122,43 @@ public class Registration{
         
         //Enter Address--------------------------------------------------------
         if (1 == 1){
-           System.out.println("Please input your address");
-           String address = input.next();
-           output.println(address);
-           System.out.println();
+            //Initialize variables
+            String address = "";
+            String city = "";
+            String state = "";
+            String zip = "";
+            
+            System.out.print("Please input your street address:  ");
+            address = input.next();
+            
+            System.out.print("Please input your city:  ");
+            city = input.next();
+            
+            while (state.length() != 2)
+            {
+                System.out.print("Please enter your state (e.g. NY):  ");
+                state = input.next();
+                if(state.length()!=2)
+                {
+                    System.out.println();
+                    System.out.println("Invalid input");
+                    System.out.println();
+                    //System.out.println("Please enter your state (e.g. NY)");
+                } 
+            }
+    
+            while (zip.length() != 5)
+            {
+                System.out.print("Please enter your 5 digit zip code:  ");
+                zip = input.next();
+                if(zip.length()!=5)
+                {
+                    System.out.println();
+                    System.out.println("Invalid input");
+                    System.out.println();
+                } 
+            }
+        
         }
 
         //Enter Registered Credits---------------------------------------------
